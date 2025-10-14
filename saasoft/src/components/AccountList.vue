@@ -11,12 +11,16 @@
         <el-icon><QuestionFilled /></el-icon>
         <span>Для указания нескольких меток для одной пары логин/пароль используйте разделитель <b>;</b></span>
       </div>
+      <AccountForm />
     </el-main>
   </el-container>
 </template>
 
-<script>
+<script setup lang="ts">
 import {Plus, QuestionFilled} from "@element-plus/icons-vue";
+import AccountForm from "@/components/AccountForm.vue";
+
+
 
 </script>
 
