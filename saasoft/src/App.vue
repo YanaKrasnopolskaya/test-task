@@ -1,11 +1,11 @@
 <template>
   <el-container class="container">
-    <AccountList />
+    <AccountForm />
   </el-container>
 </template>
 
 <script setup lang="ts">
-import AccountList from "@/components/AccountList.vue";
+import AccountForm from "@/components/AccountForm.vue";
 </script>
 
 <style>

@@ -1,37 +1,47 @@
 <template>
-  <el-form class="form" label-position="top">
-    <el-form-item label="Метки" >
-      <el-input maxlength="50"/>
-    </el-form-item>
-    <el-form-item label="Тип записи">
-      <el-select>
-        <el-option label="Локальная" value="local" />
-        <el-option label="LDAP" value="LDAP" />
-      </el-select>
-    </el-form-item>
-    <el-form-item label="Логин">
-      <el-input maxlength="100"/>
-    </el-form-item>
-    <el-form-item label="Пароль">
-      <el-input
-          type="password"
-          show-password
-          maxlength="100"
-      />
-    </el-form-item>
-  </el-form>
+  <el-container class="account-container">
+    <el-header class="account-container__header">
+      <h2>Учетные записи</h2>
+      <el-button type="primary" @click="addAccount">
+        <el-icon><Plus /></el-icon>
+      </el-button>
+    </el-header>
+    <el-main>
+      <AccountList />
+    </el-main>
+  </el-container>
 </template>
 
 <script setup lang="ts">
+import {onMounted} from "vue";
+import {Plus} from "@element-plus/icons-vue";
+import {useAccountsStore} from "@/stores/accounts.ts";
+import AccountList from "@/components/AccountList.vue";
 
+const store = useAccountsStore();
+const {loadFromStorage, addAccount} = store;
+
+onMounted(() => {
+      loadFromStorage()
+    }
+)
 </script>
 
 <style scoped lang="scss">
-.form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  padding: 24px 0;
-  width: 100%;
+.account-container {
+  display: flex;
+  flex-direction: column;
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.el-button {
+  width: 48px;
+  height: 48px;
+  padding: 8px;
+  font-size: 24px;
 }
 </style>

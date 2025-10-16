@@ -10,5 +10,6 @@ interface Account {
 }
 
 export type {
+    Tag,
     Account
 }
