@@ -20,10 +20,15 @@ export const useAccountsStore = defineStore('accounts', () => {
     }
 
     const loadFromStorage = () => {
-        const stored = localStorage.getItem("accounts");
-        if (stored) {
-            accounts.value = JSON.parse(stored);
-        } else accounts.value = [];
+        try {
+            const stored = localStorage.getItem("accounts");
+            if (stored) {
+                accounts.value = JSON.parse(stored);
+            } else accounts.value = [];
+        }
+        catch (error) {
+            console.error("Ошибка чтения данных из LocalStorage", error);
+        }
     }
 
     const saveToLocalStorage = () => {
