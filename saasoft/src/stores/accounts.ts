@@ -1,5 +1,5 @@
 import {defineStore} from "pinia";
-import {ref, watch} from "vue";
+import {ref} from "vue";
 import type {Account, Tag} from "@/components/types/account.ts";
 
 export const useAccountsStore = defineStore('accounts', () => {
@@ -8,12 +8,11 @@ export const useAccountsStore = defineStore('accounts', () => {
     const addAccount = () => {
         const newAccount: Account = {
             tags: [],
-            type: 'local',
+            type: '',
             login: '',
             password: null
         };
         accounts.value.push(newAccount);
-        saveToLocalStorage();
     };
 
     const removeAccount = (index: number) :void => {
