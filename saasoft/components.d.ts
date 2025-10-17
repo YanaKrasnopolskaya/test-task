@@ -9,6 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AccountForm: typeof import('./src/components/AccountForm.vue')['default']
+    AccountFormField: typeof import('./src/components/AccountFormField.vue')['default']
     AccountList: typeof import('./src/components/AccountList.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElContainer: typeof import('element-plus/es')['ElContainer']
