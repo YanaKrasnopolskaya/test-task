@@ -1,11 +1,12 @@
 import {ref} from "vue";
+import {KEY_ACCOUNTS} from "@/components/constants/accounts.ts";
 
 export const useLocalStorage = <T>(key: string, value: T) => {
     const data = ref<T>(value);
 
     const loadFromLocalStorage = () => {
         try {
-            const stored = localStorage.getItem("accounts");
+            const stored = localStorage.getItem(KEY_ACCOUNTS);
             if (stored) {
                 data.value = JSON.parse(stored) as T;
             } else data.value = value;
@@ -17,7 +18,7 @@ export const useLocalStorage = <T>(key: string, value: T) => {
 
     const saveToLocalStorage = () => {
         console.log(JSON.parse(JSON.stringify(data.value)));
-        localStorage.setItem("accounts", JSON.stringify(data.value));
+        localStorage.setItem(KEY_ACCOUNTS, JSON.stringify(data.value));
     }
 
     return {
