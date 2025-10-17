@@ -1,9 +1,9 @@
 import type {FormInstance} from "element-plus"
 
 const rules = {
-    type: [{ required: true, trigger: ['change', 'blur']}],
-    login: [{ required: true, trigger: ['blur']}],
-    password: [{ required: true, trigger: ['blur']}],
+    type: [{ required: true, message: 'Выберите тип', trigger: ['change', 'blur']},],
+    login: [{ required: true, message: 'Введите логин', trigger: ['blur']}],
+    password: [{ required: true, message: 'Введите пароль', trigger: ['blur']}],
 }
 
 const validCheck = async (form: FormInstance | undefined): Promise<Boolean> => {
